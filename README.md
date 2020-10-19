@@ -26,6 +26,7 @@
 | F!!     | Feature (> 8 <abbr title="lines of code">LoC</abbr><sup>[4]</sup>)                             |
 | B!!     | Bug (> 8 <abbr title="lines of code">LoC</abbr><sup>[4]</sup>)                                   |
 | R!!     | Non-provable refactoring                                  |
+| !!!     | Other activity, unproven safety                                  |
 | ***     | Does not compile intermediate step                        |
 
 # Description
@@ -82,4 +83,4 @@ One good approach to enable small features is to refactor until the feature chan
 
 We invite you to submit pull requests to help evolve this notation and methodology.
 
-*[LoC]: lines of code
+[LoC]: lines of code
