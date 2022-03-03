@@ -49,7 +49,7 @@ Each intention can appear at any of the 4 risk levels. Each intention's full det
 
 | Code | Known Approaches |
 | --- | --- |
-| `f  ` | None known |
+| `f  ` | Meets all criteria for `F`, and developers are the only users of the feature. For example, extends build tooling for your own build or adds debug logging. |
 | `F  ` | <ul><li>Change is <= 8 <abbr title="lines of code">LoC</abbr><sup>[4]</sup></li><li>Feature was fully unit tested prior to this change.</li><li>Change includes new or changed unit tests to match intended behavior alteration.</li></ul> |
 | `F!!` | Change includes unit tests for new behavior. |
 | `F**` | No automatic tests, or unfinished implementation. |
