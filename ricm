@@ -1,0 +1,41 @@
+#!/bin/bash
+
+warn() {
+    echo "$*" >&2
+}
+
+
+parse_args() {
+  while getopts "r:" opt; do
+    case $opt in
+      r)
+        risk="$OPTARG"
+        ;;
+      \?)
+        echo "Invalid option: -$OPTARG" >&2
+        exit 1
+        ;;
+    esac
+  done
+  shift $((OPTIND-1))
+  
+  message="$*"
+  
+  # warn "Risk: $risk"
+  # warn "Message: $message"
+}
+
+
+
+function risk_code {
+    echo -n $1
+}
+
+main() {
+    local risk=
+    parse_args "$@"
+    echo "$(risk_code $risk) $message"
+}
+
+main "$@"
+
