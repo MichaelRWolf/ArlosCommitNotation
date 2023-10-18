@@ -31,7 +31,9 @@ parse_args() {
 
 
 function risk_code {
-    echo -n $1
+    case $1 in
+	safe) echo -n '.';;
+    esac
 }
 
 
