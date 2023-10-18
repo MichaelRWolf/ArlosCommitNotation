@@ -6,10 +6,13 @@ warn() {
 
 
 parse_args() {
-  while getopts "r:" opt; do
+  while getopts "r:i:" opt; do
     case $opt in
       r)
         risk="$OPTARG"
+        ;;
+      i)
+        intent="$OPTARG"
         ;;
       \?)
         echo "Invalid option: -$OPTARG" >&2
@@ -31,10 +34,16 @@ function risk_code {
     echo -n $1
 }
 
+
+function intent_code {
+    echo -n $1
+}
+
+
 main() {
     local risk=
     parse_args "$@"
-    echo "$(risk_code $risk) $message"
+    echo "$(risk_code $risk) $(intent_code $intent) $message"
 }
 
 main "$@"
