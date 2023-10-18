@@ -33,12 +33,15 @@ parse_args() {
 function risk_code {
     case $1 in
 	safe) echo -n '.';;
+	validated) echo -n '^';;
     esac
 }
 
 
 function intent_code {
-    echo -n $1
+    case $1 in
+	refactoring) echo -n 'r';;
+    esac	
 }
 
 

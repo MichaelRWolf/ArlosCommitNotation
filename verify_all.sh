@@ -8,3 +8,4 @@ function verify_fn(){
 
 echo "Hello world" |  verify_fn -thello-world
 ricm -r safe -i refactoring 'Randomness' | verify_fn -tsafe_refactoring
+ricm -r validated -i refactoring 'Message 2' | verify_fn -tvalidated_refactoring
