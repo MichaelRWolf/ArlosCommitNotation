@@ -42,7 +42,10 @@ function risk_code {
 
 function intent_code {
     case $1 in
-	refactoring) echo -n 'r';;
+	feature)       echo -n 'f' ;;
+	bugfix)        echo -n 'b' ;;
+	refactoring)   echo -n 'r' ;;
+	documentation) echo -n 'd' ;;
     esac	
 }
 
@@ -50,7 +53,7 @@ function intent_code {
 main() {
     local risk=
     parse_args "$@"
-    echo "$(risk_code $risk) $(intent_code $intent) $message"
+    echo "$(risk_code $risk) $(intent_code $intent) ${message}"
 }
 
 main "$@"
