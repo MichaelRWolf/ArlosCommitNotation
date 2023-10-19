@@ -32,9 +32,10 @@ parse_args() {
 
 function risk_code {
     case $1 in
-	safe)      echo -n '.';;
-	validated) echo -n '^';;
-	risky)     echo -n '!'
+	safe)      echo -n '.' ;;
+	validated) echo -n '^' ;;
+	risky)     echo -n '!' ;;
+	broken)    echo -n '@' ;;
     esac
 }
 
