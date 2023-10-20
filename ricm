@@ -41,6 +41,11 @@ function risk_code {
 }
 
 
+risk_values() {
+    echo "safe validated risky broken"
+}
+
+
 function intention_code {
     case $1 in
 	feature)       echo -n 'f' ;;
@@ -52,8 +57,16 @@ function intention_code {
     esac	
 }
 
+
+intention_values() {
+    echo "feature bugfix refactoring documentation"
+}
+
+
 usage() {
     warn "USAGE: $(basename $0) -r risk  -i intention  message..."
+    warn "    risk in      $(risk_values)"
+    warn "    intention in $(intention_values)"
 }
 
 
