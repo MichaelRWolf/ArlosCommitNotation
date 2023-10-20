@@ -26,9 +26,6 @@ parse_args() {
     shift $((OPTIND-1))
     
     message="$*"
-    
-    # warn "Risk: $risk"
-    # warn "Message: $message"
 }
 
 
