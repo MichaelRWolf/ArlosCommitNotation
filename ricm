@@ -85,6 +85,7 @@ parse_and_validate_args(){
 
 main() {
     local risk=
+    local intent=
 
     parse_and_validate_args "$@"
 
