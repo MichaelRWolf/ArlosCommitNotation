@@ -9,26 +9,26 @@ warn() {
 
 
 parse_args() {
-  while getopts "r:i:" opt; do
-    case $opt in
-      r)
-        risk="$OPTARG"
-        ;;
-      i)
-        intention="$OPTARG"
-        ;;
-      \?)
-        echo "Invalid option: -$OPTARG" >&2
-        exit 1
-        ;;
-    esac
-  done
-  shift $((OPTIND-1))
-  
-  message="$*"
-  
-  # warn "Risk: $risk"
-  # warn "Message: $message"
+    while getopts "r:i:" opt; do
+      case $opt in
+        r)
+          risk="$OPTARG"
+          ;;
+        i)
+          intention="$OPTARG"
+          ;;
+        \?)
+          echo "Invalid option: -$OPTARG" >&2
+          exit 1
+          ;;
+      esac
+    done
+    shift $((OPTIND-1))
+    
+    message="$*"
+    
+    # warn "Risk: $risk"
+    # warn "Message: $message"
 }
 
 
