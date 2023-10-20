@@ -56,7 +56,7 @@ function intention_code {
 }
 
 usage() {
-    warn "USAGE: $(basename $0) -r risk  -i intention message..."
+    warn "USAGE: $(basename $0) -r risk  -i intention  message..."
 }
 
 

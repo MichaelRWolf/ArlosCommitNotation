@@ -29,9 +29,11 @@ done | verify_fn -tall_risks_all_intentions
     ${ricm_path}                        Command line missing -r flag
     warn
     warn
+
     ${ricm_path} -r risk                Command line missing -i flag
     warn
     warn
+
     ${ricm_path} -r risk -i refactoring
     warn
     warn
