@@ -55,23 +55,30 @@ function intention_code {
     esac	
 }
 
+usage() {
+    warn "USAGE: $(basename $0) -r risk  -i intention message..."
+}
+
 
 validate_args(){
     if [[ "${risk}" == '' ]] 
     then
 	warn 'Undefined risk.  Specify with -r flag.'
+	usage
 	exit 1
     fi
 
     if [[ "${intention}" == '' ]] 
     then
 	warn 'Undefined intention.  Specify with -i flag.'
+	usage
 	exit 1
     fi
 
     if [[ "${message}" == '' ]]
     then
 	warn 'Undefined message.'
+	usage
 	exit 1
     fi
 }

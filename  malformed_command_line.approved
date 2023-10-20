@@ -1,3 +1,12 @@
 Undefined risk.  Specify with -r flag.
-Undefined intent.  Specify with -i flag.
+USAGE: ricm -r risk  -i intention message...
+
+
+Undefined intention.  Specify with -i flag.
+USAGE: ricm -r risk  -i intention message...
+
+
 Undefined message.
+USAGE: ricm -r risk  -i intention message...
+
+
