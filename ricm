@@ -15,7 +15,7 @@ parse_args() {
         risk="$OPTARG"
         ;;
       i)
-        intent="$OPTARG"
+        intention="$OPTARG"
         ;;
       \?)
         echo "Invalid option: -$OPTARG" >&2
@@ -44,7 +44,7 @@ function risk_code {
 }
 
 
-function intent_code {
+function intention_code {
     case $1 in
 	feature)       echo -n 'f' ;;
 	bugfix)        echo -n 'b' ;;
@@ -63,9 +63,9 @@ validate_args(){
 	exit 1
     fi
 
-    if [[ "${intent}" == '' ]] 
+    if [[ "${intention}" == '' ]] 
     then
-	warn 'Undefined intent.  Specify with -i flag.'
+	warn 'Undefined intention.  Specify with -i flag.'
 	exit 1
     fi
 
@@ -85,12 +85,12 @@ parse_and_validate_args(){
 
 main() {
     local risk=
-    local intent=
+    local intention=
 
     parse_and_validate_args "$@"
 
     risk_code="$(risk_code $risk)"
-    intention_code="$(intent_code $intent)"
+    intention_code="$(intention_code $intention)"
 
     echo "${risk_code}${space}${intention_code}${space}${message}"
 }
