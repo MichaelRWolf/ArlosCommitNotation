@@ -56,12 +56,7 @@ function intent_code {
 }
 
 
-main() {
-    local risk=
-
-    parse_args "$@"
-    
-    # Validate args...
+validate_args(){
     if [[ "${risk}" == '' ]] 
     then
 	warn 'Undefined risk.  Specify with -r flag.'
@@ -79,6 +74,14 @@ main() {
 	warn 'Undefined message.'
 	exit 1
     fi
+}
+
+
+main() {
+    local risk=
+
+    parse_args "$@"
+    validate_args
 
     risk_code="$(risk_code $risk)"
     intention_code="$(intent_code $intent)"
