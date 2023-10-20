@@ -19,3 +19,10 @@ do
 	${ricm_path} -r "${risk}"  -i "${intention}"  "${message}"
     done
 done | verify_fn -tall_risks_all_intentions
+
+
+{
+    ${ricm_path}                        Command line missing -r flag 2>&1 
+    ${ricm_path} -r risk                Command line missing -i flag 2>&1 
+    ${ricm_path} -r risk -i refactoring                              2>&1 
+} | verify_fn -t malformed_command_line

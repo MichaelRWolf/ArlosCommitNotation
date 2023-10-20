@@ -1,5 +1,8 @@
 #!/bin/bash
 
+space=' '
+dash='-'
+
 warn() {
     echo "$*" >&2
 }
@@ -29,13 +32,14 @@ parse_args() {
 }
 
 
-
 function risk_code {
     case $1 in
 	safe)      echo -n '.' ;;
 	validated) echo -n '^' ;;
 	risky)     echo -n '!' ;;
 	broken)    echo -n '@' ;;
+
+	*)         echo -n ' ' ;;
     esac
 }
 
@@ -46,15 +50,41 @@ function intent_code {
 	bugfix)        echo -n 'b' ;;
 	refactoring)   echo -n 'r' ;;
 	documentation) echo -n 'd' ;;
+
+	*)             echo -n ' ' ;;
     esac	
 }
 
 
 main() {
     local risk=
+
     parse_args "$@"
-    echo "$(risk_code $risk) $(intent_code $intent) ${message}"
+    
+    # Validate args...
+    if [[ "${risk}" == '' ]] 
+    then
+	warn 'Undefined risk.  Specify with -r flag.'
+	exit 1
+    fi
+
+    if [[ "${intent}" == '' ]] 
+    then
+	warn 'Undefined intent.  Specify with -i flag.'
+	exit 1
+    fi
+
+    if [[ "${message}" == '' ]]
+    then
+	warn 'Undefined message.'
+	exit 1
+    fi
+
+    risk_code="$(risk_code $risk)"
+    intention_code="$(intent_code $intent)"
+
+    echo "${risk_code}${space}${intention_code}${space}${message}"
 }
 
-main "$@"
 
+main "$@"
