@@ -77,11 +77,16 @@ validate_args(){
 }
 
 
+parse_and_validate_args(){
+    parse_args "$@"
+    validate_args
+}
+
+
 main() {
     local risk=
 
-    parse_args "$@"
-    validate_args
+    parse_and_validate_args "$@"
 
     risk_code="$(risk_code $risk)"
     intention_code="$(intent_code $intent)"
