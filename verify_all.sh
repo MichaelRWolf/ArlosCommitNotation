@@ -2,13 +2,15 @@
 
 verify_sh="$HOME/repos/ApprovalTests.shell/bash/verify.sh"
 diff_command="sdiff"
+#diff_command="meld"
 
 warn() { 
     echo "$@" >&2
 }
 
+
 function verify_fn(){
-    bash ${verify_sh} "$*" -d "${diff_command}"
+    bash ${verify_sh} -d "${diff_command}" "$@" 
 }
 
 ricm_path=$(PATH=.:$PATH which ricm)
@@ -39,3 +41,8 @@ done | verify_fn -tall_risks_all_intentions
     warn
     warn
 } 2>&1 | verify_fn -t malformed_command_line
+
+{
+    echo "There is no help"
+    set -xv
+} | verify_fn -t help -d meld
