@@ -1,13 +1,14 @@
 #! /bin/bash
 
 verify_sh="$HOME/repos/ApprovalTests.shell/bash/verify.sh"
+diff_command="sdiff"
 
 warn() { 
     echo "$@" >&2
 }
 
 function verify_fn(){
-    bash ${verify_sh} "$*" -d 'meld'
+    bash ${verify_sh} "$*" -d "${diff_command}"
 }
 
 ricm_path=$(PATH=.:$PATH which ricm)
