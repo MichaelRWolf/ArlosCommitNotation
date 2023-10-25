@@ -38,12 +38,14 @@ do_help(){
     echo
 
     cat <<HELP_MESSAGE
+|-------------------------------------------------------------------+----------------------------------------+--------------|
 | Risk Level        | Code |  Meaning                               | Correctness Guarantees                                |
 |-------------------+------+----------------------------------------+----------------------------------------+--------------|
 | Known safe        | .    | Addresses all known and unknown risks. | Intended Change, Known Invariants, Unknown Invariants |
 | Validated         | ^    | Addresses all known risks.             | Intended Change, Known Invariants                     |
 | Risky             | !    | Some known risks remain unverified.    | Intended Change                                       |
 | (Probably) Broken | @    | No risk attestation.                   |                                                       |
+|-------------------------------------------------------------------+----------------------------------------+--------------|
 
 
 |--------------------------------------------------------------------------------------------------------------------|
