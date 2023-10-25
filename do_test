@@ -1,0 +1,4 @@
+#! /bin/bash
+./verify_all.sh && 
+    (echo ========;./ricm -r risky -i bugfix xxx) && 
+    (echo; echo ========; echo; git status)
