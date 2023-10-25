@@ -44,4 +44,13 @@ done | verify_fn -tall_risks_all_intentions
 
 {
     ${ricm_path} -rsafe -idocumentation -h
+    rc=$?
+
+    echo
+    if (( rc == 2 ))
+    then        
+	echo "got expected return code (2)"
+    else
+	echo "got unexpected return code ($rc)"	
+    fi
 } | verify_fn -t help

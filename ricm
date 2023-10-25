@@ -19,6 +19,7 @@ parse_args() {
           ;;
 	h) 
 	    do_help
+	    exit 2
 	    ;;
         \?)
           echo "Invalid option: -$OPTARG" >&2
