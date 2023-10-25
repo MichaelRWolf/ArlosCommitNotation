@@ -8,6 +8,11 @@ do_compose_message(){
 	echo ========; ./ricm -r risky -i bugfix xxx
 }
 
+do_git_status(){
+	echo; echo ========; echo; git status
+}
+
+
 do_verify && 
     (do_compose_message) && 
-    (echo; echo ========; echo; git status)
+    (do_git_status)
