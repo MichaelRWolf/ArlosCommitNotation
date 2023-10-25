@@ -9,7 +9,7 @@ warn() {
 
 
 parse_args() {
-    while getopts "r:i:" opt; do
+    while getopts "r:i:h" opt; do
       case $opt in
         r)
           risk="$OPTARG"
@@ -17,6 +17,9 @@ parse_args() {
         i)
           intention="$OPTARG"
           ;;
+	h) 
+	    do_help
+	    ;;
         \?)
           echo "Invalid option: -$OPTARG" >&2
           exit 1
@@ -26,6 +29,17 @@ parse_args() {
     shift $((OPTIND-1))
     
     message="$*"
+}
+
+do_help(){
+    cat <<HELP_MESSAGE
+| Risk Level        | Code |  Meaning                               | Correctness Guarantees                                |
+|-------------------+------+----------------------------------------+----------------------------------------+--------------|
+| Known safe        | .    | Addresses all known and unknown risks. | Intended Change, Known Invariants, Unknown Invariants |
+| Validated         | ^    | Addresses all known risks.             | Intended Change, Known Invariants                     |
+| Risky             | !    | Some known risks remain unverified.    | Intended Change                                       |
+| (Probably) Broken | @    | No risk attestation.                   |                                                       |
+HELP_MESSAGE
 }
 
 

@@ -43,6 +43,5 @@ done | verify_fn -tall_risks_all_intentions
 } 2>&1 | verify_fn -t malformed_command_line
 
 {
-    echo "There is no help"
-    set -xv
-} | verify_fn -t help -d meld
+    ${ricm_path} -rsafe -idocumentation -h
+} | verify_fn -t help
