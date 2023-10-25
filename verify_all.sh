@@ -28,6 +28,9 @@ do
 done | verify_fn -tall_risks_all_intentions
 
 
+# ================================================================
+test_name="malformed_command_line"
+
 {
     ${ricm_path}                        Command line missing -r flag
     warn
@@ -40,7 +43,11 @@ done | verify_fn -tall_risks_all_intentions
     ${ricm_path} -r risk -i refactoring
     warn
     warn
-} 2>&1 | verify_fn -t malformed_command_line
+} 2>&1 | verify_fn -t "${test_name}"
+
+
+# ================================================================
+test_name="help"
 
 {
     ${ricm_path} -rsafe -idocumentation -h
@@ -53,4 +60,4 @@ done | verify_fn -tall_risks_all_intentions
     else
 	echo "got unexpected return code ($rc)"	
     fi
-} | verify_fn -t help
+} | verify_fn -t "${test_name}"
