@@ -6,7 +6,8 @@
 | (Probably) Broken | @    | No risk attestation.                   |                                                       |
 
 
-| Core intentions
+|--------------------------------------------------------------------------------------------------------------------|
+| Core intentions                                                                                                    |
 |--------------------------------------------------------------------------------------------------------------------|
 | Prefix | Name          | Intention                                                                                 |
 |--------+---------------+-------------------------------------------------------------------------------------------|
@@ -14,5 +15,18 @@
 | B      | Bugfix        | Repair one existing, undesirable program behavior without altering any others.            |
 | r      | Refactoring   | Change implementation without changing program behavior.                                  |
 | d      | Documentation | Change something which communicates to team members and does not impact program behavior. |
+|--------+---------------+-------------------------------------------------------------------------------------------|
+
+
+|--------------------------------------------------------------------------------------------------------------------|
+| Extension intentions                                                                                               |
+|--------------------------------------------------------------------------------------------------------------------|
+| Prefix | Name          | Intention                                                                                 |
+|--------|---------------+-------------------------------------------------------------------------------------------|
+|        |               | Provable Refactorings                                                                     |
+|        |               | Test-supported Procedural Refactorings                                                    |
+|        |               | End-User Documentation                                                                    |
+|        |               | Small Features and Bug Fixes                                                              |
+|--------+---------------+-------------------------------------------------------------------------------------------|
 
 got expected return code (2)
