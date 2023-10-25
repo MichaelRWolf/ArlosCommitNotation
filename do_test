@@ -5,7 +5,7 @@ do_verify(){
 }
 
 
-do_compose_message(){
+do_compose_sample_risky_bugfix_message(){
 	echo ========
 	 ./ricm -r risky -i bugfix xxx
 }
@@ -20,9 +20,9 @@ do_git_status(){
 
 
 main(){
-	do_verify && 
-	    do_compose_message && 
-	        do_git_status
+    do_verify && 
+        do_compose_sample_risky_bugfix_message && 
+        do_git_status
 }
 
 
