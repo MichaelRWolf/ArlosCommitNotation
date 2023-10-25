@@ -4,6 +4,10 @@ do_verify(){
 	./verify_all.sh
 }
 
+do_compose_message(){
+	echo ========; ./ricm -r risky -i bugfix xxx
+}
+
 do_verify && 
-    (echo ========; ./ricm -r risky -i bugfix xxx) && 
+    (do_compose_message) && 
     (echo; echo ========; echo; git status)
