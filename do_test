@@ -18,5 +18,5 @@ do_git_status(){
 
 
 do_verify && 
-    (do_compose_message) && 
-    (do_git_status)
+    do_compose_message && 
+    do_git_status
