@@ -1,3 +1,8 @@
+USAGE: ricm -r risk  -i intention  message...
+    risk in      safe validated risky broken
+    intention in feature bugfix refactoring documentation
+
+
 | Risk Level        | Code |  Meaning                               | Correctness Guarantees                                |
 |-------------------+------+----------------------------------------+----------------------------------------+--------------|
 | Known safe        | .    | Addresses all known and unknown risks. | Intended Change, Known Invariants, Unknown Invariants |
