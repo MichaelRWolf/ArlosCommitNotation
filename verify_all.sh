@@ -2,7 +2,7 @@
 
 verify_sh="$HOME/repos/ApprovalTests.shell/bash/verify.sh"
 diff_command="sdiff"
-#diff_command="meld"
+diff_command="meld"
 
 warn() { 
     echo "$@" >&2
