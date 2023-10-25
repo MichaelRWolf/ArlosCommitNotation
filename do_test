@@ -1,4 +1,9 @@
 #! /bin/bash
-./verify_all.sh && 
-    (echo ========;./ricm -r risky -i bugfix xxx) && 
+
+do_verify(){
+	./verify_all.sh
+}
+
+do_verify && 
+    (echo ========; ./ricm -r risky -i bugfix xxx) && 
     (echo; echo ========; echo; git status)
