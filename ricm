@@ -32,6 +32,7 @@ parse_args() {
     message="$*"
 }
 
+
 do_help(){
     usage 2>&1
     echo
@@ -70,6 +71,13 @@ do_help(){
 |        |               | End-User Documentation                                                                    |
 |        |               | Small Features and Bug Fixes                                                              |
 |--------+---------------+-------------------------------------------------------------------------------------------|
+
+
+
+TODO
+Add Missing codes from ArlosCommitNotation/Extension Intentions.md
+$(cat 'Extension Intentions.md')
+
 HELP_MESSAGE
 }
 
