@@ -40,17 +40,20 @@ done | verify_fn -t"${language}.all_risks_all_intentions"
 test_name="${language}.malformed_command_line"
 
 {
-    ${ricm_path}                        Command line missing -r flag
+    warn '====> Test for missing -r flag'
+    ${ricm_path}
+
     warn
     warn
 
-    ${ricm_path} -r risky               Command line missing -i flag
+    warn '====> Test for missing -i flag'
+    ${ricm_path} -r risky
+
     warn
     warn
 
+    warn '===> Test for missing message'
     ${ricm_path} -r risky -i refactoring
-    warn
-    warn
 } 2>&1 | verify_fn -t "${test_name}"
 
 
@@ -58,6 +61,7 @@ test_name="${language}.malformed_command_line"
 test_name="${language}.help"
 
 {
+    warn '====> Test -h'
     ${ricm_path} -rsafe -idocumentation -h
     rc=$?
 
@@ -68,4 +72,8 @@ test_name="${language}.help"
     else
 	echo "got unexpected return code ($rc)"	
     fi
-} | verify_fn -t "${test_name}"
+
+    warn '====> Test -H'
+    ${ricm_path} -H
+
+} 2>&1 | verify_fn -t "${test_name}"

@@ -1,3 +1,4 @@
+====> Test -h
 USAGE: ricm.sh -r risk  -i intention  message...
     risk in      safe validated risky broken
     intention in feature bugfix refactoring documentation
@@ -61,3 +62,6 @@ also lists alternatives used in projects that don't use the code.
 | @      | Unknown / multiple | Made a bunch of changes and are just getting it checked in. No real way to validate safety, and may not even compile. Usually used at the highest risk level ('@ @').       | Don't allow this. Require each commit to do exactly one intention and document itself accordingly.                                                                                                                                                 |
 
 got expected return code (2)
+====> Test -H
+./ricm.sh: illegal option -- H
+Invalid option: -

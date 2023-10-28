@@ -1,18 +1,19 @@
+====> Test for missing -r flag
 Undefined risk.  Specify with -r flag.
 USAGE: ricm.sh -r risk  -i intention  message...
     risk in      safe validated risky broken
     intention in feature bugfix refactoring documentation
 
 
+====> Test for missing -i flag
 Undefined intention.  Specify with -i flag.
 USAGE: ricm.sh -r risk  -i intention  message...
     risk in      safe validated risky broken
     intention in feature bugfix refactoring documentation
 
 
+===> Test for missing message
 Undefined message.
 USAGE: ricm.sh -r risk  -i intention  message...
     risk in      safe validated risky broken
     intention in feature bugfix refactoring documentation
-
-
