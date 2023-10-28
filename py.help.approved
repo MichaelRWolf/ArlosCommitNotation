@@ -1,0 +1,17 @@
+usage: ricm.py [-h] -r {safe,validated,risky,broken} -i
+               {feature,bugfix,refactoring,documentation}
+               message
+
+Construct a Git commit message
+
+positional arguments:
+  message               Commit message
+
+options:
+  -h, --help            show this help message and exit
+  -r {safe,validated,risky,broken}, --risk {safe,validated,risky,broken}
+                        Risk level
+  -i {feature,bugfix,refactoring,documentation}, --intention {feature,bugfix,refactoring,documentation}
+                        Intention
+
+got unexpected return code (0)

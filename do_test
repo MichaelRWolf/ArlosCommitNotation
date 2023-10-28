@@ -2,6 +2,7 @@
 
 do_verify(){
 	./verify_all.sh sh
+	./verify_all.sh py
 }
 
 

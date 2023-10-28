@@ -12,7 +12,7 @@ warn() {
 language="${1}"; 
 shift 1;
 case "${language}" in
-    (sh) ;;
+    (sh|py) ;;
     (*) warn illegal language: ${language};
 	exit 3
 esac    
@@ -22,7 +22,7 @@ function verify_fn(){
     bash ${verify_sh} -d "${diff_command}" "$@" 
 }
 
-ricm_path=$(PATH=.:$PATH which ricm.sh)
+ricm_path=$(PATH=.:$PATH which ricm.${language})
 
 
 for risk in safe validated risky broken

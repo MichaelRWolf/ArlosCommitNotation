@@ -1,0 +1,18 @@
+usage: ricm.py [-h] -r {safe,validated,risky,broken} -i
+               {feature,bugfix,refactoring,documentation}
+               message
+ricm.py: error: argument -r/--risk: invalid choice: 'flag' (choose from 'safe', 'validated', 'risky', 'broken')
+
+
+usage: ricm.py [-h] -r {safe,validated,risky,broken} -i
+               {feature,bugfix,refactoring,documentation}
+               message
+ricm.py: error: argument -i/--intention: invalid choice: 'flag' (choose from 'feature', 'bugfix', 'refactoring', 'documentation')
+
+
+usage: ricm.py [-h] -r {safe,validated,risky,broken} -i
+               {feature,bugfix,refactoring,documentation}
+               message
+ricm.py: error: the following arguments are required: message
+
+
