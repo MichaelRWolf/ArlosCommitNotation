@@ -44,11 +44,11 @@ test_name="${language}.malformed_command_line"
     warn
     warn
 
-    ${ricm_path} -r risk                Command line missing -i flag
+    ${ricm_path} -r risky               Command line missing -i flag
     warn
     warn
 
-    ${ricm_path} -r risk -i refactoring
+    ${ricm_path} -r risky -i refactoring
     warn
     warn
 } 2>&1 | verify_fn -t "${test_name}"
