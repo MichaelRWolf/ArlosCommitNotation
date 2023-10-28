@@ -1,13 +1,14 @@
 #! /bin/bash
 
 do_verify(){
-	./verify_all.sh
+	./verify_all.sh sh
 }
 
 
 do_compose_sample_risky_bugfix_message(){
 	echo ========
-	 ./ricm -r risky -i bugfix xxx
+	 ./ricm.sh -r risky -i bugfix xxx | pbcopy
+	 pbpaste
 }
 
 
