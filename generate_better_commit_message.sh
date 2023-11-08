@@ -1,17 +1,36 @@
 #! /bin/bash
 
+set -xv
 
-export n_th_parent="${1?n-th parent must be specified as first argument}"
-export generation_count="${2-1}"
 
-export commit_reference_oldest="HEAD~${n_th_parent}"
-export commit_reference_newest="HEAD~$((${n_th_parent} - ${generation_count}))"
+export n_th_parent=0
+export generation_count=1
 
+if [[ "${1}" ]]; then
+    n_th_parent="${1}"
+
+    if [[ "${2}" ]]; then
+	generation_count="${2}"
+    fi
+fi
+
+
+export commit_reference_newest
+export commit_reference_oldest
+
+if (( ${n_th_parent} == 0 )); then
+    commit_reference_newest=""
+    commit_reference_oldest=""
+else 
+    commit_reference_newest="HEAD~${n_th_parent}"
+    commit_reference_oldest="HEAD~$((${n_th_parent} + ${generation_count}))"
+fi
 
 
 (
     set -x;
-    git diff --no-prefix --unified=0 "${commit_reference_oldest}" "${commit_reference_newest}"
+    # Note:  No double-quotes below to avoid sending empty references (i.e. n_th_prent == 0)
+    git diff --no-prefix --unified=0 ${commit_reference_newest} ${commit_reference_oldest}
 ) 2>&1 | pbcopy
 pbpaste
 
@@ -20,9 +39,9 @@ pbpaste
     echo "Related git-log messages"
 
     git log --oneline |
-    head -n$(($n_th_parent)) |
-    nl |
-    tail -n"${generation_count}"
+        head -n$(($n_th_parent + $generation_count - 1)) |
+	nl |
+	tail -n"${generation_count}"
 ) >&2
 
 # 
