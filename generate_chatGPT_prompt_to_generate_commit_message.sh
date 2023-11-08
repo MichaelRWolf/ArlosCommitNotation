@@ -40,9 +40,10 @@ pbpaste
     echo "Related git-log messages"
 
     git log --oneline |
-        head -n$(($n_th_parent + $generation_count - 1)) |
-	nl |
-	tail -n"${generation_count}"
+        (head -n$(($n_th_parent + $generation_count - 1)) 2>/dev/null || echo "Uncommitted changes...") |
+	tail -n"${generation_count}" |
+	nl -v ${n_th_parent} 
+
 ) >&2
 
 
