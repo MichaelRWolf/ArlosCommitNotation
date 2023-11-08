@@ -1,7 +1,5 @@
 #! /bin/bash
 
-set -xv
-
 
 export n_th_parent=0
 export generation_count=1
@@ -28,8 +26,11 @@ fi
 
 
 (
+    
+    # Notes:  
+    #     1. The -x flag (xtrace) is intended for ChatGPT use, not human use.  Keep it in.
+    #     2. Double quotes are intentionally missing around commit_reference_* to prevent empty args to git-diff(1)
     set -x;
-    # Note:  No double-quotes below to avoid sending empty references (i.e. n_th_prent == 0)
     git diff --no-prefix --unified=0 ${commit_reference_newest} ${commit_reference_oldest}
 ) 2>&1 | pbcopy
 pbpaste
@@ -43,13 +44,6 @@ pbpaste
 	nl |
 	tail -n"${generation_count}"
 ) >&2
-
-# 
-# echo '  VVVV'
-# echo '  ^^^^' 
-# git log --oneline | nl | head -n$(($n_th_parent + 3)) | tail -n 7
-# 
-
 
 
 display_gpt_instructions(){
