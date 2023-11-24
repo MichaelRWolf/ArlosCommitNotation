@@ -183,3 +183,4 @@ We invite you to submit pull requests to help evolve this notation and methodolo
 <a id="lines-of-code">LoC: Lines of Code</a>
 
 [5]:#lines-of-code
+# commit-message-generator
